@@ -132,7 +132,6 @@ white-space:normal;
 }
 /* Styles for mobile phones */ 
 
-
 @media (min-width: 376px), (max-width:1024px){ 
   .pagetop h4 {
     font-size: calc(0.7rem + 1vw) ;
@@ -184,7 +183,7 @@ white-space:normal;
     top: 65%;
   }
 }
-@media (min-height: 675px) and (min-width: 1024px){ 
+@media (min-height: 635px) and (min-width: 1024px){ 
   .pagetop h3 {
     font-size: calc(2rem + 0.5vh);
   }
@@ -192,7 +191,7 @@ white-space:normal;
     font-size: 2vh;
   }
   #boy{
-    line-height: 18vh !important;
+    line-height: 20vh !important;
   }
   #scratcher-box {
     position:absolute;

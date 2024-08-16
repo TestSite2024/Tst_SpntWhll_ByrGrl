@@ -7,6 +7,9 @@ window.onload = async () => {
     /* let mql = window.matchMedia("(max-height: 321px)");
     alert(mql.matches);
     alert(window.innerHeight); */
+    // alert(window.innerWidth);
+    // alert(window.innerHeight);
+
     
     var a = new Image();
     /* if (userOS ="iOS" && userOSver<13) {
@@ -85,7 +88,19 @@ window.onload = async () => {
     //wheel.onSpin = playtick;
     wheel.onCurrentIndexChange= playtick;
 
-
+    document.addEventListener(
+        "visibilitychange",
+         function(evt) {
+            //alert(document.visibilityState);
+          if (document.visibilityState != "visible") {
+            wheel.isSpinning=0;
+            finishedSpin=true;
+            wheel.spinTo(1);
+            onResetClicked();
+            }
+        },
+        false,
+      );
     window.addEventListener('click', (e) => {
   
       // Listen for click event on spin button:
