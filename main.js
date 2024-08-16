@@ -38,7 +38,7 @@ function confetti_effect() {
     $('#tboy').text(gendertext);
     $('#tboy').css('color',colortxt);
     $('#boy').hide();
-    $('.images').hide();
+    //$('.images').hide();
     $('#or').hide();
     $('#girl').hide();
     document.getElementsByTagName("body")[0].style.backgroundColor = color;
@@ -47,7 +47,6 @@ function confetti_effect() {
 
     $('#H3').hide();
     $('#H4').hide();
-    $('#scratcher3Pct').hide();
     if(triggered==true) {
         return;
     }
@@ -105,7 +104,7 @@ export {playticksound};
         $('#boy').show();
         $('#or').show();
         $('#girl').show();
-        $('.images').show();
+        //$('.images').show();
         document.getElementsByTagName("body")[0].style.backgroundColor = "#FFFFFF";
         document.getElementsByTagName("body")[0].style.backgroundImage = 'url(images/background.jpg)';
         document.getElementById("resetbutton").value = "Spin!";
