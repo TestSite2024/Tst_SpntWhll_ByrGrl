@@ -132,7 +132,7 @@ export {playticksound};
             surname="the";
         }
         
-        document.getElementById('intro').innerHTML= "This is a gender reveal spin the wheel for <strong>" + surname + "</strong> family. It contains sound when the gender is revealed. Do you want to continue with sound?";
+        document.getElementById('intro').innerHTML= "This is a gender reveal spin the wheel for <strong>" + surname + "</strong> family. It contains high level sound. Do you want to continue with sound?";
         document.getElementById('id01').style.display='block';
         $('.nosoundbtn').on("click", function (e) {
             document.getElementById('id01').style.display='none';
