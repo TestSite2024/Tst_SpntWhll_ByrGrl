@@ -28,14 +28,14 @@ body {
     -ms-text-size-adjust: none;
         text-size-adjust: none;
   /* Prevent pull-down-to-refresh gesture */
-  /* overscroll-behavior-y: contain; */
+   overscroll-behavior-y: contain;
 
   /* Prevent iOS rubber-band effect */
   position: fixed;
   width: 100%;
 
   /* Prevent browser from handling touch events */
-  /*touch-action: none;*/
+  touch-action: none;
 
   display: flex;
   flex-direction: column;

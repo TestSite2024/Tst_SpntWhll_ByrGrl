@@ -388,7 +388,7 @@ function V(i = {}) {
     });
 
     let e = () => {
-        if ((userOS === 'iOS' && Number( userOSver.charAt(0) ) >= 13 ) || userOS === 'Android') {
+        if ((userOS === 'iOS' && Number( userOSver.charAt(0) ) >= 14 ) || userOS === 'Android') {
         i._mediaQueryList = window.matchMedia(`(resolution: ${window.devicePixelRatio}dppx)`), i._mediaQueryList.addEventListener("change", i._handler_onDevicePixelRatioChange, {
             once: !0
         })
