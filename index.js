@@ -21,6 +21,7 @@ window.onload = async () => {
     const container = document.querySelector('.wheel-wrapper');
     const btn = document.getElementById("resetbutton");
     const props = {
+        itemw: 1,
         radius: 0.9,
         pointerAngle: 0,
         itemLabelRadius: 0.6,
@@ -116,13 +117,13 @@ window.onload = async () => {
           return;
         }
         
-        const winningItemIndex = fetchWinningItemIndexFromApi();
+        //const winningItemIndex = fetchWinningItemIndexFromApi();
         const duration = 13000;
         const spinDirection = 1;
         const revolutions = 8;
         //playticksound();
         document.getElementById("scratcher-box").focus();
-        wheel.spinToItem(winningItemIndex, duration, true, revolutions, spinDirection, easeOut);
+        wheel.spinToItem(props.itemw, duration, true, revolutions, spinDirection, easeOut);
 
       }
   
@@ -131,6 +132,10 @@ window.onload = async () => {
     });  
    
   };
+//   function fetchWinningItemIndexFromApi() {
+//     // Simulate a call to the back-end
+//     return 1;
+//   }
   function process(props) {
 
     for(var i=0;i<props.items.length;i++){
@@ -138,10 +143,7 @@ window.onload = async () => {
         props.items[i].label = window.atob( props.items[i].label);
     }
   }
-  function fetchWinningItemIndexFromApi() {
-    // Simulate a call to the back-end
-    return 1;
-  }
+  
 
   async function loadImages(images, props) {
   const promises=[];
@@ -331,6 +333,7 @@ var p = Object.freeze({
             image: null,
             isInteractive: !0,
             isSpinning: !0,
+            itemw: 1,
             itemBackgroundColors: ["#fff"],
             itemLabelAlign: p.right,
             itemLabelBaselineOffset: 0,
@@ -588,7 +591,7 @@ var Wheel = class {
         t ? this.init(t) : this.init(o.wheel)
     }
     init(e = {}) {
-        this._isInitialising = !0, this.borderColor = e.borderColor, this.borderWidth = e.borderWidth, this.debug = e.debug, this.image = e.image, this.isInteractive = e.isInteractive, this.itemBackgroundColors = e.itemBackgroundColors, this.itemLabelAlign = e.itemLabelAlign, this.itemLabelBaselineOffset = e.itemLabelBaselineOffset, this.itemLabelColors = e.itemLabelColors, this.itemLabelFont = e.itemLabelFont, this.itemLabelFontSizeMax = e.itemLabelFontSizeMax, this.itemLabelRadius = e.itemLabelRadius, this.itemLabelRadiusMax = e.itemLabelRadiusMax, this.itemLabelRotation = e.itemLabelRotation, this.itemLabelStrokeColor = e.itemLabelStrokeColor, this.itemLabelStrokeWidth = e.itemLabelStrokeWidth, this.items = e.items, this.lineColor = e.lineColor, this.lineWidth = e.lineWidth, this.pixelRatio = e.pixelRatio, this.rotationSpeedMax = e.rotationSpeedMax, this.radius = e.radius, this.rotation = e.rotation, this.rotationResistance = e.rotationResistance, this.offset = e.offset, this.onCurrentIndexChange = e.onCurrentIndexChange, this.onRest = e.onRest, this.onSpin = e.onSpin, this.overlayImage = e.overlayImage, this.pointerAngle = e.pointerAngle
+        this._isInitialising = !0, this.borderColor = e.borderColor, this.borderWidth = e.borderWidth, this.debug = e.debug, this.image = e.image, this.isInteractive = e.isInteractive, this.itemBackgroundColors = e.itemBackgroundColors, this.itemLabelAlign = e.itemLabelAlign, this.itemLabelBaselineOffset = e.itemLabelBaselineOffset, this.itemLabelColors = e.itemLabelColors, this.itemLabelFont = e.itemLabelFont, this.itemLabelFontSizeMax = e.itemLabelFontSizeMax, this.itemLabelRadius = e.itemLabelRadius, this.itemLabelRadiusMax = e.itemLabelRadiusMax, this.itemLabelRotation = e.itemLabelRotation, this.itemLabelStrokeColor = e.itemLabelStrokeColor, this.itemLabelStrokeWidth = e.itemLabelStrokeWidth, this.items = e.items, this.lineColor = e.lineColor, this.lineWidth = e.lineWidth, this.pixelRatio = e.pixelRatio, this.rotationSpeedMax = e.rotationSpeedMax, this.radius = e.radius, this.rotation = e.rotation, this.rotationResistance = e.rotationResistance, this.offset = e.offset, this.onCurrentIndexChange = e.onCurrentIndexChange, this.onRest = e.onRest, this.onSpin = e.onSpin, this.overlayImage = e.overlayImage, this.itemw = e.itemw, this.pointerAngle = e.pointerAngle
     }
     add(e) {
         this._canvasContainer = e, this.canvas = document.createElement("canvas"), this._context = this.canvas.getContext("2d"), this._canvasContainer.append(this.canvas), V(this), this._isInitialising === !1 && this.resize()
@@ -1249,7 +1252,7 @@ var Wheel = class {
             break
         }
         
-        this.refreshCursor(), e > 90 && this.spinToItem(1,13000,true,8,1,easeOut);// && this.beginSpin(e * (1e3 / 250), "interact")
+        this.refreshCursor(), e > 90 && this.spinToItem(this.itemw,13000,true,8,1,easeOut);// && this.beginSpin(e * (1e3 / 250), "interact")
     }
     isDragEventTooOld(e = 0, t = {}) {
         return e - t.now > 250
