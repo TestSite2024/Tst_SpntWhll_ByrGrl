@@ -123,7 +123,7 @@ window.onload = async () => {
         const revolutions = 8;
         //playticksound();
         document.getElementById("scratcher-box").focus();
-        wheel.spinToItem(props.itemw, duration, true, revolutions, spinDirection, easeOut);
+        wheel.spinToItem(props.itemw, duration, true, revolutions, spinDirection, easeOutCubic);
 
       }
   
@@ -581,6 +581,10 @@ var easeOut = function easeOutCirc( t ) {
     const t1 = t - 1;
     return Math.sqrt( 1 - t1 * t1 );
   
+  }
+
+var easeOutCubic = function easeoutcubic(x) {  
+    return 1 - Math.pow(1 - x, 3);
   }
 var Wheel = class {
     constructor(e, t = {}) {
@@ -1252,7 +1256,7 @@ var Wheel = class {
             break
         }
         
-        this.refreshCursor(), e > 90 && this.spinToItem(this.itemw,13000,true,8,1,easeOut);// && this.beginSpin(e * (1e3 / 250), "interact")
+        this.refreshCursor(), e > 90 && this.spinToItem(this.itemw,13000,true,8,1,easeOutCubic);// && this.beginSpin(e * (1e3 / 250), "interact")
     }
     isDragEventTooOld(e = 0, t = {}) {
         return e - t.now > 250
