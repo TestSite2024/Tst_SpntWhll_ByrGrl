@@ -1,4 +1,4 @@
-import {confetti_effect, playticksound, onResetClicked} from './main.js';
+import {confetti_effect, playticksound, onResetClicked, getGen} from './main.js';
 var finishedSpin = false;
 window.onload = async () => {
     getOS();
@@ -67,15 +67,16 @@ window.onload = async () => {
       itemLabelRadiusMax: 0.3,
     };
 
-    gen = params.get('gen');
+    gen = getGen();
+    console.log(gen);
     if (gen !=null) {
         if (gen==4){
-        props.items.itemw = gen;
+        props.itemw = gen;
         props.items[4].label='REVNTw==';
         props.items[1].label= 'R2lybA==';
         }
         if (gen==1){
-            props.items.itemw = gen;
+            props.itemw = gen;
             props.items[gen].label='REVNTw==';
             props.items[4].label= 'Qm95';
         }

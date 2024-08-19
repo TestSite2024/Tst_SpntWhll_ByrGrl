@@ -9,7 +9,8 @@ var soundHandle = new Audio();
 //var soundcounter= 0;
 var triggered=false;
 var nosound=true;
-var params = new URLSearchParams(window.location.search.slice(1));
+var params = new URLSearchParams(window.location.search.slice(2));
+var gen = new URLSearchParams(window.location.search.slice(2));
 var color1 = '#ff95c8';
 var color2 = '#5194f8';
 var color3 ='#969696';
@@ -120,10 +121,16 @@ export {playticksound};
     };
     export {onResetClicked};
 
-   
-    
+   function getGen() {
+    if (params.get('gen')!=null) {
+        return params.get('gen');
+    }
+
+   }
+    export {getGen};
     function initPage() {
         var i, i1;
+
         surname = params.get('surname');
         if (surname !=null && surname.replace(/\s/g, '').length) {
             $("#baby").text('baby ' + surname+'!');}
@@ -131,7 +138,7 @@ export {playticksound};
             $("#baby").text('the baby!');
             surname="the";
         }
-        
+
         document.getElementById('intro').innerHTML= "This is a gender reveal spin the wheel for <strong>" + surname + "</strong> family. It contains high level sound. Do you want to continue with sound?";
         document.getElementById('id01').style.display='block';
         $('.nosoundbtn').on("click", function (e) {
