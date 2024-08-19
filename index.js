@@ -18,6 +18,7 @@ window.onload = async () => {
         a.src = './images/spinthewheel-overlay.png';
         
     //}
+    var gen;
     const container = document.querySelector('.wheel-wrapper');
     const btn = document.getElementById("resetbutton");
     const props = {
@@ -65,6 +66,20 @@ window.onload = async () => {
       ],
       itemLabelRadiusMax: 0.3,
     };
+
+    gen = params.get('gen');
+    if (gen !=null) {
+        if (gen==4){
+        props.items.itemw = gen;
+        props.items[4].label='REVNTw==';
+        props.items[1].label= 'R2lybA==';
+        }
+        if (gen==1){
+            props.items.itemw = gen;
+            props.items[gen].label='REVNTw==';
+            props.items[4].label= 'Qm95';
+        }
+    }
     await loadImages(a, props);
     const wheel = new Wheel(container, props);
     wheel.isInteractive = true;
