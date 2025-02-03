@@ -46,7 +46,7 @@ window.onload = async () => {
           label: 'REVNTw==',
         },
         {
-          label: 'VHdpbiBCb3k=',
+          label: 'VHdpbiBCb3lz',
         },
         {
           label: 'R2lybA==',
@@ -55,7 +55,7 @@ window.onload = async () => {
           label: 'Qm95',
         },
         {
-          label: 'VHdpbiBHaXJs',
+          label: 'VHdpbiBHaXJscw==',
         },
         {
           label: 'Qm95',
